@@ -1,4 +1,5 @@
-#glyph-space-container canvas {
+#glyph-space-container canvas,
+#input-glyphs-container canvas {
   margin-right: 30px;
   margin-top: 20px;
   border: 1px grey dashed;

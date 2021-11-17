@@ -1,11 +1,11 @@
 module GlyphGenerator {
   /*
   Full glyph    Dots          Vertical        Horinzontal
-  o-o-o         0-1-2         o-o-o           o 1 o 2 o
+  o-o-o         0-1-2         o-o-o           o 0 o 1 o
   | | |         | | |         0 1 2           |   |   |
-  o-o-o         3-4-5         o-o-o           o 3 o 4 o
+  o-o-o         3-4-5         o-o-o           o 2 o 3 o
   | | |         | | |         3 4 5           |   |   |
-  o-o-o         6-7-8         o-o-o           o 5 o 6 o
+  o-o-o         6-7-8         o-o-o           o 4 o 5 o
   */
 
   export const drawGlyph = (
