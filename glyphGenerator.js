@@ -125,16 +125,21 @@ var GlyphGenerator;
 (function (GlyphGenerator) {
     document.addEventListener("DOMContentLoaded", function (event) {
         GlyphGenerator.drawGlyphSpaceGlyphs();
-        const inputGlyphs = [
-            generateInputRune1(),
-            generateInputRune2(),
-            generateInputRune3(),
-        ];
+        const inputGlyphs = GlyphGenerator.getInputGlyphs();
+        GlyphGenerator.drawInputGlyphs(inputGlyphs);
+    });
+})(GlyphGenerator || (GlyphGenerator = {}));
+var GlyphGenerator;
+(function (GlyphGenerator) {
+    GlyphGenerator.getInputGlyphs = () => {
+        return [generateInputRune1(), generateInputRune2(), generateInputRune3()];
+    };
+    GlyphGenerator.drawInputGlyphs = (inputGlyphs) => {
         const inputGlyphCanvases = GlyphGenerator.addCanvases("input-glyphs-container", inputGlyphs.length);
         for (let index = 0; index < inputGlyphCanvases.length; index++) {
             GlyphGenerator.drawGlyph(inputGlyphs[index], inputGlyphCanvases[index], "grey", "grey", "grey");
         }
-    });
+    };
     const generateInputRune1 = () => {
         const dotsArray = new Array(9).fill(false);
         const verticalLinesArray = new Array(6).fill(false);
