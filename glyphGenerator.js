@@ -6,10 +6,10 @@ var GlyphGenerator;
         canvas.height = GlyphGenerator.glyphHeight;
         return canvas;
     };
-    GlyphGenerator.addCanvases = (containerId) => {
+    GlyphGenerator.addCanvases = (containerId, numberOfCanvases) => {
         let canvases = [];
         let canvasContainer = document.getElementById(containerId);
-        for (let index = 0; index < 4; index++) {
+        for (let index = 0; index < numberOfCanvases; index++) {
             let canvas = generateCanvas();
             canvasContainer.appendChild(canvas);
             canvases.push(canvas);
@@ -72,13 +72,13 @@ var GlyphGenerator;
 })(GlyphGenerator || (GlyphGenerator = {}));
 var GlyphGenerator;
 (function (GlyphGenerator) {
-    document.addEventListener("DOMContentLoaded", function (event) {
-        const initialGlyphCanvases = GlyphGenerator.addCanvases("glyph-space-container");
+    GlyphGenerator.drawGlyphSpaceGlyphs = () => {
+        const initialGlyphCanvases = GlyphGenerator.addCanvases("glyph-space-container", 4);
         GlyphGenerator.drawGlyph(generateAllDotsRune(), initialGlyphCanvases[0]);
         GlyphGenerator.drawGlyph(generateAllVerticalLinesRune(), initialGlyphCanvases[1]);
         GlyphGenerator.drawGlyph(generateAllHorizontalLinesRune(), initialGlyphCanvases[2]);
         GlyphGenerator.drawGlyph(generateAllLinesAndDotsRune(), initialGlyphCanvases[3]);
-    });
+    };
     const generateAllDotsRune = () => {
         const dotsArray = new Array(9).fill(true);
         const verticalLinesArray = new Array(6).fill(false);
@@ -119,6 +119,12 @@ var GlyphGenerator;
             horizontalLinesArray,
         };
     };
+})(GlyphGenerator || (GlyphGenerator = {}));
+var GlyphGenerator;
+(function (GlyphGenerator) {
+    document.addEventListener("DOMContentLoaded", function (event) {
+        GlyphGenerator.drawGlyphSpaceGlyphs();
+    });
     const generateThirdRune = () => {
         const dotsArray = new Array(9).fill(false);
         const verticalLinesArray = new Array(6).fill(false);
