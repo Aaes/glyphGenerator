@@ -1,5 +1,5 @@
 module GlyphGenerator {
-  export const generateCanvas = (): HTMLCanvasElement => {
+  const generateCanvas = (): HTMLCanvasElement => {
     let canvas = document.createElement("canvas");
     canvas.width = glyphWidth;
     canvas.height = glyphHeight;

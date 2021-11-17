@@ -1,6 +1,6 @@
 var GlyphGenerator;
 (function (GlyphGenerator) {
-    GlyphGenerator.generateCanvas = () => {
+    const generateCanvas = () => {
         let canvas = document.createElement("canvas");
         canvas.width = GlyphGenerator.glyphWidth;
         canvas.height = GlyphGenerator.glyphHeight;
@@ -10,7 +10,7 @@ var GlyphGenerator;
         let canvases = [];
         let canvasContainer = document.getElementById(containerId);
         for (let index = 0; index < 4; index++) {
-            let canvas = GlyphGenerator.generateCanvas();
+            let canvas = generateCanvas();
             canvasContainer.appendChild(canvas);
             canvases.push(canvas);
         }
@@ -28,14 +28,7 @@ var GlyphGenerator;
 })(GlyphGenerator || (GlyphGenerator = {}));
 var GlyphGenerator;
 (function (GlyphGenerator) {
-    document.addEventListener("DOMContentLoaded", function (event) {
-        const initialGlyphCanvases = GlyphGenerator.addCanvases("glyph-space-container");
-        drawGlyph(generateAllDotsRune(), initialGlyphCanvases[0]);
-        drawGlyph(generateAllVerticalLinesRune(), initialGlyphCanvases[1]);
-        drawGlyph(generateAllHorizontalLinesRune(), initialGlyphCanvases[2]);
-        drawGlyph(generateAllLinesAndDotsRune(), initialGlyphCanvases[3]);
-    });
-    const drawGlyph = (glyph, canvas, dotsColor = "black", verticalLinesColor = "red", horizontalLinesColor = "blue") => {
+    GlyphGenerator.drawGlyph = (glyph, canvas, dotsColor = "black", verticalLinesColor = "red", horizontalLinesColor = "blue") => {
         const ctx = canvas.getContext("2d");
         let dotsChunk = -1;
         for (let index = 0; index < glyph.dotsArray.length; index++) {
@@ -76,6 +69,16 @@ var GlyphGenerator;
             }
         }
     };
+})(GlyphGenerator || (GlyphGenerator = {}));
+var GlyphGenerator;
+(function (GlyphGenerator) {
+    document.addEventListener("DOMContentLoaded", function (event) {
+        const initialGlyphCanvases = GlyphGenerator.addCanvases("glyph-space-container");
+        GlyphGenerator.drawGlyph(generateAllDotsRune(), initialGlyphCanvases[0]);
+        GlyphGenerator.drawGlyph(generateAllVerticalLinesRune(), initialGlyphCanvases[1]);
+        GlyphGenerator.drawGlyph(generateAllHorizontalLinesRune(), initialGlyphCanvases[2]);
+        GlyphGenerator.drawGlyph(generateAllLinesAndDotsRune(), initialGlyphCanvases[3]);
+    });
     const generateAllDotsRune = () => {
         const dotsArray = new Array(9).fill(true);
         const verticalLinesArray = new Array(6).fill(false);
