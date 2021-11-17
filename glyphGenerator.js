@@ -29,7 +29,6 @@ var GlyphGenerator;
 var GlyphGenerator;
 (function (GlyphGenerator) {
     document.addEventListener("DOMContentLoaded", function (event) {
-        console.log("eller nu?");
         const initialGlyphCanvases = GlyphGenerator.addCanvases("glyph-space-container");
         drawGlyph(generateAllDotsRune(), initialGlyphCanvases[0]);
         drawGlyph(generateAllVerticalLinesRune(), initialGlyphCanvases[1]);

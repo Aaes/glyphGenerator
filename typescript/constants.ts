@@ -7,4 +7,10 @@ module GlyphGenerator {
   export const dotHeight = 10;
 
   export const dotsPerLine = 3;
+
+  export type Glyph = {
+    dotsArray: Array<boolean>;
+    verticalLinesArray: Array<boolean>;
+    horizontalLinesArray: Array<boolean>;
+  };
 }

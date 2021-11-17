@@ -1,6 +1,5 @@
 module GlyphGenerator {
   document.addEventListener("DOMContentLoaded", function (event) {
-    console.log("eller nu?");
     const initialGlyphCanvases = addCanvases("glyph-space-container");
 
     drawGlyph(generateAllDotsRune(), initialGlyphCanvases[0]);
@@ -8,12 +7,6 @@ module GlyphGenerator {
     drawGlyph(generateAllHorizontalLinesRune(), initialGlyphCanvases[2]);
     drawGlyph(generateAllLinesAndDotsRune(), initialGlyphCanvases[3]);
   });
-
-  type Glyph = {
-    dotsArray: Array<boolean>;
-    verticalLinesArray: Array<boolean>;
-    horizontalLinesArray: Array<boolean>;
-  };
 
   /*
 Full glyph    Dots          Vertical        Horinzontal
