@@ -7,8 +7,4 @@ module GlyphGenerator {
   export const dotHeight = 10;
 
   export const dotsPerLine = 3;
-
-  module Infrastructure {
-    export const myconst = 42;
-  }
 }

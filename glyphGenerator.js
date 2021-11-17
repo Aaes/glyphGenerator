@@ -25,10 +25,6 @@ var GlyphGenerator;
     GlyphGenerator.dotWidth = 10;
     GlyphGenerator.dotHeight = 10;
     GlyphGenerator.dotsPerLine = 3;
-    let Infrastructure;
-    (function (Infrastructure) {
-        Infrastructure.myconst = 42;
-    })(Infrastructure || (Infrastructure = {}));
 })(GlyphGenerator || (GlyphGenerator = {}));
 var GlyphGenerator;
 (function (GlyphGenerator) {
