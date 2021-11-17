@@ -127,6 +127,34 @@ var GlyphGenerator;
         GlyphGenerator.drawGlyphSpaceGlyphs();
         const inputGlyphs = GlyphGenerator.getInputGlyphs();
         GlyphGenerator.drawInputGlyphs(inputGlyphs);
+        const dotsChances = new Array(inputGlyphs[0].dotsArray.length).fill(0);
+        const verticalLinesChances = new Array(inputGlyphs[0].verticalLinesArray.length).fill(0);
+        const horizontalLinesChances = new Array(inputGlyphs[0].horizontalLinesArray.length).fill(0);
+        for (const inputGlyph of inputGlyphs) {
+            for (let dotIndex = 0; dotIndex < inputGlyph.dotsArray.length; dotIndex++) {
+                dotsChances[dotIndex] += inputGlyph.dotsArray[dotIndex]
+                    ? 1 / inputGlyphs.length
+                    : 0;
+            }
+            for (let verticalLineIndex = 0; verticalLineIndex < inputGlyph.verticalLinesArray.length; verticalLineIndex++) {
+                verticalLinesChances[verticalLineIndex] += inputGlyph
+                    .verticalLinesArray[verticalLineIndex]
+                    ? 1 / inputGlyphs.length
+                    : 0;
+            }
+            for (let horizontalLineIndex = 0; horizontalLineIndex < inputGlyph.verticalLinesArray.length; horizontalLineIndex++) {
+                horizontalLinesChances[horizontalLineIndex] += inputGlyph
+                    .horizontalLinesArray[horizontalLineIndex]
+                    ? 1 / inputGlyphs.length
+                    : 0;
+            }
+        }
+        const chances = {
+            dotsChances,
+            verticalLinesChances,
+            horizontalLinesChances,
+        };
+        console.log(chances);
     });
 })(GlyphGenerator || (GlyphGenerator = {}));
 var GlyphGenerator;
