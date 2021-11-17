@@ -48,7 +48,13 @@ o-o-o         3-4-5         o-o-o           o 3 o 4 o
 o-o-o         6-7-8         o-o-o           o 5 o 6 o
 */
 
-const drawGlyph = (glyph: Glyph, canvas: HTMLCanvasElement) => {
+const drawGlyph = (
+  glyph: Glyph,
+  canvas: HTMLCanvasElement,
+  dotsColor: string = "black",
+  verticalLinesColor: string = "red",
+  horizontalLinesColor: string = "blue"
+) => {
   const ctx = canvas.getContext("2d");
 
   // Draw the dots
@@ -59,7 +65,7 @@ const drawGlyph = (glyph: Glyph, canvas: HTMLCanvasElement) => {
       dotsChunk++;
     }
     if (drawDot) {
-      ctx.fillStyle = "black";
+      ctx.fillStyle = dotsColor;
       ctx.fillRect(
         glyphMargin + (glyphWidth / dotsPerLine) * (index % dotsPerLine),
         glyphMargin + (glyphHeight / dotsPerLine) * dotsChunk,
@@ -77,7 +83,7 @@ const drawGlyph = (glyph: Glyph, canvas: HTMLCanvasElement) => {
       verticalLinesChunk++;
     }
     if (drawVerticalLine) {
-      ctx.fillStyle = "red";
+      ctx.fillStyle = verticalLinesColor;
       ctx.fillRect(
         glyphMargin + (glyphWidth / dotsPerLine) * (index % dotsPerLine),
         glyphMargin +
@@ -99,7 +105,7 @@ const drawGlyph = (glyph: Glyph, canvas: HTMLCanvasElement) => {
       horizontalLinesChunk++;
     }
     if (drawHorizontalLine) {
-      ctx.fillStyle = "blue";
+      ctx.fillStyle = horizontalLinesColor;
       ctx.fillRect(
         glyphMargin +
           (glyphWidth / dotsPerLine) * (index % horizontalLinesPerLine) +

@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     drawGlyph(generateAllHorizontalLinesRune(), initialGlyphCanvases[2]);
     drawGlyph(generateAllLinesAndDotsRune(), initialGlyphCanvases[3]);
 });
-const drawGlyph = (glyph, canvas) => {
+const drawGlyph = (glyph, canvas, dotsColor = "black", verticalLinesColor = "red", horizontalLinesColor = "blue") => {
     const ctx = canvas.getContext("2d");
     let dotsChunk = -1;
     for (let index = 0; index < glyph.dotsArray.length; index++) {
@@ -35,7 +35,7 @@ const drawGlyph = (glyph, canvas) => {
             dotsChunk++;
         }
         if (drawDot) {
-            ctx.fillStyle = "black";
+            ctx.fillStyle = dotsColor;
             ctx.fillRect(glyphMargin + (glyphWidth / dotsPerLine) * (index % dotsPerLine), glyphMargin + (glyphHeight / dotsPerLine) * dotsChunk, dotWidth, dotHeight);
         }
     }
@@ -46,7 +46,7 @@ const drawGlyph = (glyph, canvas) => {
             verticalLinesChunk++;
         }
         if (drawVerticalLine) {
-            ctx.fillStyle = "red";
+            ctx.fillStyle = verticalLinesColor;
             ctx.fillRect(glyphMargin + (glyphWidth / dotsPerLine) * (index % dotsPerLine), glyphMargin +
                 dotHeight +
                 (glyphHeight / dotsPerLine) * verticalLinesChunk, dotWidth, 24);
@@ -60,7 +60,7 @@ const drawGlyph = (glyph, canvas) => {
             horizontalLinesChunk++;
         }
         if (drawHorizontalLine) {
-            ctx.fillStyle = "blue";
+            ctx.fillStyle = horizontalLinesColor;
             ctx.fillRect(glyphMargin +
                 (glyphWidth / dotsPerLine) * (index % horizontalLinesPerLine) +
                 dotWidth, glyphMargin + (glyphHeight / dotsPerLine) * horizontalLinesChunk, 10, dotHeight);
