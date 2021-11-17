@@ -1,17 +1,7 @@
-## Typescript starter
+## Glyph generator
 
-This a boilerplate typescript project to quickly clone when a starting a new project.
-It includes
+https://aaes.github.io/glyphGenerator/index.html
 
-- A basic HTML page (`index.html`)
-- A basic CSS file (`base.css`)
-- An empty Typescript file (`project.ts`)
-- A stanard prettier configuration file (`.prettierrc`)
+## Based on ideas by
 
-## Things to change
-
-HTML file
-
-- The title, Javascript file path and CSS file path is directly in here
-  tsconfig
-- Contains the output file name, and can be changed here
+<a href="https://www.reddit.com/user/watawatabou/">Watawatabou</a> and the original idea <a href="https://www.reddit.com/r/proceduralgeneration/comments/5wzo7j/monthly_challenge_16_march_2017_procedural_runes/">can be found here</a>
