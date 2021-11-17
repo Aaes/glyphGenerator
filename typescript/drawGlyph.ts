@@ -27,8 +27,8 @@ module GlyphGenerator {
       if (drawDot) {
         ctx.fillStyle = dotsColor;
         ctx.fillRect(
-          glyphMargin + (glyphWidth / dotsPerLine) * (index % dotsPerLine),
-          glyphMargin + (glyphHeight / dotsPerLine) * dotsChunk,
+          glyphMarginLeft + (glyphWidth / dotsPerLine) * (index % dotsPerLine),
+          glyphMarginTop + (glyphHeight / dotsPerLine) * dotsChunk,
           dotWidth,
           dotHeight
         );
@@ -45,8 +45,8 @@ module GlyphGenerator {
       if (drawVerticalLine) {
         ctx.fillStyle = verticalLinesColor;
         ctx.fillRect(
-          glyphMargin + (glyphWidth / dotsPerLine) * (index % dotsPerLine),
-          glyphMargin +
+          glyphMarginLeft + (glyphWidth / dotsPerLine) * (index % dotsPerLine),
+          glyphMarginTop +
             dotHeight +
             (glyphHeight / dotsPerLine) * verticalLinesChunk,
           dotWidth,
@@ -67,10 +67,10 @@ module GlyphGenerator {
       if (drawHorizontalLine) {
         ctx.fillStyle = horizontalLinesColor;
         ctx.fillRect(
-          glyphMargin +
+          glyphMarginLeft +
             (glyphWidth / dotsPerLine) * (index % horizontalLinesPerLine) +
             dotWidth,
-          glyphMargin + (glyphHeight / dotsPerLine) * horizontalLinesChunk,
+          glyphMarginTop + (glyphHeight / dotsPerLine) * horizontalLinesChunk,
           10,
           dotHeight
         );

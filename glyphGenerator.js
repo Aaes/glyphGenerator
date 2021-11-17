@@ -21,7 +21,8 @@ var GlyphGenerator;
 (function (GlyphGenerator) {
     GlyphGenerator.glyphWidth = 60;
     GlyphGenerator.glyphHeight = 100;
-    GlyphGenerator.glyphMargin = 5;
+    GlyphGenerator.glyphMarginLeft = 5;
+    GlyphGenerator.glyphMarginTop = 12;
     GlyphGenerator.dotWidth = 10;
     GlyphGenerator.dotHeight = 10;
     GlyphGenerator.dotsPerLine = 3;
@@ -38,7 +39,7 @@ var GlyphGenerator;
             }
             if (drawDot) {
                 ctx.fillStyle = dotsColor;
-                ctx.fillRect(GlyphGenerator.glyphMargin + (GlyphGenerator.glyphWidth / GlyphGenerator.dotsPerLine) * (index % GlyphGenerator.dotsPerLine), GlyphGenerator.glyphMargin + (GlyphGenerator.glyphHeight / GlyphGenerator.dotsPerLine) * dotsChunk, GlyphGenerator.dotWidth, GlyphGenerator.dotHeight);
+                ctx.fillRect(GlyphGenerator.glyphMarginLeft + (GlyphGenerator.glyphWidth / GlyphGenerator.dotsPerLine) * (index % GlyphGenerator.dotsPerLine), GlyphGenerator.glyphMarginTop + (GlyphGenerator.glyphHeight / GlyphGenerator.dotsPerLine) * dotsChunk, GlyphGenerator.dotWidth, GlyphGenerator.dotHeight);
             }
         }
         let verticalLinesChunk = -1;
@@ -49,7 +50,7 @@ var GlyphGenerator;
             }
             if (drawVerticalLine) {
                 ctx.fillStyle = verticalLinesColor;
-                ctx.fillRect(GlyphGenerator.glyphMargin + (GlyphGenerator.glyphWidth / GlyphGenerator.dotsPerLine) * (index % GlyphGenerator.dotsPerLine), GlyphGenerator.glyphMargin +
+                ctx.fillRect(GlyphGenerator.glyphMarginLeft + (GlyphGenerator.glyphWidth / GlyphGenerator.dotsPerLine) * (index % GlyphGenerator.dotsPerLine), GlyphGenerator.glyphMarginTop +
                     GlyphGenerator.dotHeight +
                     (GlyphGenerator.glyphHeight / GlyphGenerator.dotsPerLine) * verticalLinesChunk, GlyphGenerator.dotWidth, 24);
             }
@@ -63,9 +64,9 @@ var GlyphGenerator;
             }
             if (drawHorizontalLine) {
                 ctx.fillStyle = horizontalLinesColor;
-                ctx.fillRect(GlyphGenerator.glyphMargin +
+                ctx.fillRect(GlyphGenerator.glyphMarginLeft +
                     (GlyphGenerator.glyphWidth / GlyphGenerator.dotsPerLine) * (index % horizontalLinesPerLine) +
-                    GlyphGenerator.dotWidth, GlyphGenerator.glyphMargin + (GlyphGenerator.glyphHeight / GlyphGenerator.dotsPerLine) * horizontalLinesChunk, 10, GlyphGenerator.dotHeight);
+                    GlyphGenerator.dotWidth, GlyphGenerator.glyphMarginTop + (GlyphGenerator.glyphHeight / GlyphGenerator.dotsPerLine) * horizontalLinesChunk, 10, GlyphGenerator.dotHeight);
             }
         }
     };
