@@ -62,6 +62,58 @@ module GlyphGenerator {
       horizontalLinesChances,
     };
 
-    console.log(chances);
+    const numberOfGlyphsToGenerate = 25;
+    const generatedGlyphCanvases = addCanvases(
+      "generated-glyphs-container",
+      numberOfGlyphsToGenerate
+    );
+
+    for (let index = 0; index < numberOfGlyphsToGenerate; index++) {
+      drawGlyph(
+        generateGlyph(chances),
+        generatedGlyphCanvases[index],
+        "black",
+        "black",
+        "black"
+      );
+    }
   });
+
+  function generateGlyph(chances: {
+    dotsChances: number[];
+    verticalLinesChances: number[];
+    horizontalLinesChances: number[];
+  }): Glyph {
+    const dotsArray = new Array(9).fill(false);
+    const verticalLinesArray = new Array(6).fill(false);
+    const horizontalLinesArray = new Array(6).fill(false);
+
+    for (let dotsIndex = 0; dotsIndex < dotsArray.length; dotsIndex++) {
+      dotsArray[dotsIndex] = Math.random() <= chances.dotsChances[dotsIndex];
+    }
+
+    for (
+      let verticalLinesIndex = 0;
+      verticalLinesIndex < verticalLinesArray.length;
+      verticalLinesIndex++
+    ) {
+      verticalLinesArray[verticalLinesIndex] =
+        Math.random() <= chances.verticalLinesChances[verticalLinesIndex];
+    }
+
+    for (
+      let horizontalLinesIndex = 0;
+      horizontalLinesIndex < horizontalLinesArray.length;
+      horizontalLinesIndex++
+    ) {
+      horizontalLinesArray[horizontalLinesIndex] =
+        Math.random() <= chances.horizontalLinesChances[horizontalLinesIndex];
+    }
+
+    return {
+      dotsArray,
+      verticalLinesArray,
+      horizontalLinesArray,
+    };
+  }
 }
